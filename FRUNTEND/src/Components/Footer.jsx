@@ -21,10 +21,10 @@ const Footer = () => {
               while inspiring the next generation.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 bg-orange-800 rounded-full flex items-center justify-center hover:bg-accent transition duration-300">
+              <a href="https://www.instagram.com/vikram_radha2024/?utm_source=ig_web_button_share_sheet" className="w-10 h-10 bg-orange-800 rounded-full flex items-center justify-center hover:bg-accent transition duration-300">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="w-10 h-10 bg-orange-800 rounded-full flex items-center justify-center hover:bg-accent transition duration-300">
+              <a href="https://www.facebook.com/share/18Nd4Uy143/" className="w-10 h-10 bg-orange-800 rounded-full flex items-center justify-center hover:bg-accent transition duration-300">
                 <Facebook size={20} />
               </a>
               <a href="#" className="w-10 h-10 bg-orange-800 rounded-full flex items-center justify-center hover:bg-accent transition duration-300">
