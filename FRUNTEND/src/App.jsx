@@ -5,7 +5,7 @@ import Navbar from './Components/Navbar';
 import Hero from './Components/Hero';
 import About from './Components/About';
 import Gallery from './Components/Gallery';
-import Contact from './components/Contact';
+import Contact from './Components/Contact';
 import Footer from './components/Footer';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
