@@ -5,7 +5,7 @@ import "./styles/style.css";
 
 const Hero = () => {
   return (
-    <div className=" yehi min-h-screen flex items-center  bg-gradient-to-br from-gray-50 to-gray-200 pt-20">
+    <div className=" yehi min-h-screen flex items-center   from-gray-50 to-gray-200 pt-20">
       <div className="max-w-5xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
