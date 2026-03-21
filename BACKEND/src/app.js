@@ -45,9 +45,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to Artist ANNURADHA App API" });
 });
 
-app.get("/path", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/dist/index.html"));
-});
+
 
 // Error handling middleware
 app.use((err, req, res, next) => {
