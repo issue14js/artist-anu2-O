@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await axios.get(`${API_URL}/auth/me`);
+        const res = await axios.get(`${API_URL}/api/auth/me`);
         setUser(res.data.user);
       } catch (err) {
         setUser(null);
@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.post(`${API_URL}/auth/signup`, {
+      const res = await axios.post(`${API_URL}/api/auth/signup`, {
         name,
         email,
         password,
@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.post(`${API_URL}/auth/login`, {
+      const res = await axios.post(`${API_URL}/api/auth/login`, {
         email,
         password,
       });
@@ -71,7 +71,7 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     setLoading(true);
     try {
-      await axios.post(`${API_URL}/auth/logout`);
+      await axios.post(`${API_URL}/api/auth/logout`);
       setUser(null);
     } catch (err) {
       console.error('Logout failed:', err);
@@ -84,7 +84,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.put(`${API_URL}/profile/update`, profileData);
+      const res = await axios.put(`${API_URL}/api/profile/update`, profileData);
       setUser(res.data.user);
       return res.data;
     } catch (err) {
