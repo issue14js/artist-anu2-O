@@ -56,7 +56,7 @@ const AdminMessages = () => {
     try {
       const response = await axios.get(`${API_URL}/api/contact/unread-count`, {
         withCredentials: true,
-      });
+      },{ withCredentials: true });
 
       if (response.data.success) {
         setUnreadCount(response.data.unreadCount);
@@ -75,7 +75,7 @@ const AdminMessages = () => {
       try {
         await axios.put(`${API_URL}/api/contact/messages/${msg._id}/read`, {}, {
           withCredentials: true,
-        });
+        },{ withCredentials: true });
         fetchUnreadCount();
       } catch (error) {
         console.error('Error marking message as read:', error);

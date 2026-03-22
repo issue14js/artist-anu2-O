@@ -84,7 +84,7 @@ const AdminPostUpload = () => {
           'Content-Type': 'multipart/form-data',
         },
         withCredentials: true,
-      });
+      },{ withCredentials: true });
 
       if (response.data.success) {
         setMessage({ type: 'success', text: 'Post uploaded successfully!' });

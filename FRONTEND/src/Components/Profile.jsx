@@ -49,7 +49,7 @@ const Profile = () => {
       const endpoint = id ? `/api/profile/${id}` : '/api/profile/current/me';
       const res = await axios.get(`${API_URL}${endpoint}`, {
         withCredentials: true,
-      });
+      },{ withCredentials: true });
       setProfile(res.data.user);
       setFormData({
         name: res.data.user.name || '',
@@ -91,7 +91,7 @@ const Profile = () => {
 
       const res = await axios.put(`${API_URL}/api/profile/update`, updateData, {
         withCredentials: true,
-      });
+      },{ withCredentials: true });
 
       setProfile(res.data.user);
       setIsEditing(false);

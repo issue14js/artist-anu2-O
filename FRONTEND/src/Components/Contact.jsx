@@ -59,7 +59,7 @@ const Contact = () => {
 
     try {
       setLoading(true);
-      const response = await axios.post(`${API_URL}/api/contact/messages`, formData);
+      const response = await axios.post(`${API_URL}/api/contact/messages`, formData,{ withCredentials: true });
 
       if (response.data.success) {
         setMessage({ type: 'success', text: 'Message sent successfully! We will get back to you soon.' });

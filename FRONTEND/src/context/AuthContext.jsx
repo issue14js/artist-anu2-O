@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await axios.get(`${API_URL}/api/auth/me`);
+        const res = await axios.get(`${API_URL}/api/auth/me`,{ withCredentials: true });
         setUser(res.data.user);
       } catch (err) {
         setUser(null);
@@ -39,7 +39,11 @@ export const AuthProvider = ({ children }) => {
         email,
         password,
         passwordConfirm,
-      });
+      },
+       {
+        withCredentials: true
+     }
+    );
       setUser(res.data.user);
       return res.data;
     } catch (err) {
@@ -58,7 +62,7 @@ export const AuthProvider = ({ children }) => {
       const res = await axios.post(`${API_URL}/api/auth/login`, {
         email,
         password,
-      });
+      },{ withCredentials: true });
       setUser(res.data.user);
       return res.data;
     } catch (err) {
@@ -73,7 +77,7 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     setLoading(true);
     try {
-      await axios.post(`${API_URL}/api/auth/logout`);
+      await axios.post(`${API_URL}/api/auth/logout`,{ withCredentials: true });
       setUser(null);
     } catch (err) {
       console.error('Logout failed:', err);
@@ -86,7 +90,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.put(`${API_URL}/api/profile/update`, profileData);
+      const res = await axios.put(`${API_URL}/api/profile/update`, profileData,{ withCredentials: true });
       setUser(res.data.user);
       return res.data;
     } catch (err) {
@@ -104,7 +108,7 @@ export const AuthProvider = ({ children }) => {
     setError(null);
     try {
       const endpoint = `/api/profile/current/me` 
-      const res = await axios.get(`${API_URL}${endpoint}`);
+      const res = await axios.get(`${API_URL}${endpoint}`,{ withCredentials: true });
       return res.data.user;
     } catch (err) {
       const message = err.response?.data?.error || 'Failed to fetch profile';
@@ -119,7 +123,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.put(`${API_URL}/api/profile/avatar`, { avatar });
+      const res = await axios.put(`${API_URL}/api/profile/avatar`, { avatar },{ withCredentials: true });
       setUser(res.data.user);
       return res.data;
     } catch (err) {
@@ -135,7 +139,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await axios.get(`${API_URL}/api/profile/users/all`, {
         params: { search, specialization }
-      });
+      },{ withCredentials: true });
       return res.data.users;
     } catch (err) {
       console.error('Failed to fetch users:', err);
