@@ -15,11 +15,20 @@ const app = express();
 
 
 // CORS Configuration
+const allowedOrigins = [
+  "http://localhost:5173",
+   "https://artist-anuradha.vercel.app"
+];  
+
 const corsOptions = {
-  origin: process.env.FRONTEND_URL ,
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
+  origin: function (origin, callback) {   
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+    credentials: true,
 };
 
 // Middleware
